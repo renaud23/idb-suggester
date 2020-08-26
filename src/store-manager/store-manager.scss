@@ -1,0 +1,91 @@
+.store-manager {
+  background-color: honeydew;
+  width: 250px;
+  margin: 2px 2px;
+
+  .store-manager-title {
+    display: inline-block;
+    text-align: left;
+    font-size: 18px;
+    font-weight: bold;
+    color: dodgerblue;
+    font-family: Tahoma, Geneva, sans-serif;
+    border-bottom: solid 1px dodgerblue;
+    margin: 10px 0px 12px 6px;
+  }
+  .store-status {
+    position: relative;
+    .store-status-info {
+      padding-left: 12px;
+      font-size: 12px;
+      font-family: "Lucida Console", Monaco, monospace;
+      text-align: left;
+      .label {
+        margin-right: 5px;
+        color: goldenrod;
+        background-color: ghostwhite;
+        border: solid goldenrod 1px;
+        border-radius: 2px;
+        padding: 2px 5px;
+        margin-bottom: 2px;
+        display: inline-block;
+        min-width: 70px;
+      }
+      .value {
+        color: black;
+      }
+    }
+  }
+
+  .store-manager-actions-container{
+    height: 35px;
+    position: relative;
+    .bulk-insert-progress-container {
+
+    }
+  }
+
+  .store-manager-separator {
+    display: inline-block;
+    width: 12px;
+  }
+
+  .store-button {
+    border: none;
+    padding: 0;
+    margin: 0;
+
+    border-radius: 4px;
+    height: 28px;
+    border: orangered solid 2px;
+    background-color: snow;
+    color: orangered;
+    padding: 2px 12px;
+    cursor: pointer;
+    &:hover {
+      background-color: orangered;
+      color: snow;
+    }
+    &:active,
+    &:focus {
+      background-color: snow;
+      color: goldenrod;
+      border: goldenrod solid 2px;
+      outline: none;
+    }
+    &:focus {
+      box-shadow: 0 0 0 1pt blue;
+    }
+
+    &.disabled {
+      border: darkslategrey solid 2px;
+      background-color: lightslategrey;
+      color: snow;
+      &:hover,
+      &:active,
+      &:focus {
+        box-shadow: none;
+      }
+    }
+  }
+}
