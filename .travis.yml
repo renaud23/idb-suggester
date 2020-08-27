@@ -1,3 +1,13 @@
 language: node_js
 node_js:
  - 14
+script:
+  - npm test
+  - npm run build
+deploy:
+  provider: surge
+  skip_cleanup: true
+  domain: idb-suggester.surge.sh
+  project: ./lib/
+on:
+  branch: master
