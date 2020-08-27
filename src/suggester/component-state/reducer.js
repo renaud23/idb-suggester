@@ -1,5 +1,5 @@
-import * as ACTIONS from "./actions";
-import getDisplayValue from "../get-display-value";
+import * as ACTIONS from './actions';
+import getDisplayValue from '../get-display-value';
 
 function getInPayload(action, ...attrs) {
   const { payload } = action;
@@ -63,7 +63,7 @@ function reduceOnFocusedSuggester(state) {
 }
 
 function reduceOnInputChange(state, action) {
-  const { value, cursorPos } = getInPayload(action, "value", "cursorPos");
+  const { value, cursorPos } = getInPayload(action, 'value', 'cursorPos');
 
   return {
     ...state,
@@ -76,7 +76,7 @@ function reduceOnInputChange(state, action) {
 }
 
 function reduceOnRefreshSuggestions(state, action) {
-  const { suggestions } = getInPayload(action, "suggestions");
+  const { suggestions } = getInPayload(action, 'suggestions');
   const { displayOnRefresh } = state;
   const displayPanel = displayOnRefresh && suggestions.length > 0;
   return {
@@ -89,7 +89,7 @@ function reduceOnRefreshSuggestions(state, action) {
 }
 
 function reduceOnMouseEnterOption(state, action) {
-  const { index } = getInPayload(action, "index");
+  const { index } = getInPayload(action, 'index');
   return { ...state, displayActiveIndex: true, activeIndex: index };
 }
 
@@ -106,7 +106,7 @@ function reduceOnCLickDeleteButton(state) {
     activeInde: -1,
     displayActiveIndex: false,
     selectedItem: undefined,
-    inputValue: "",
+    inputValue: '',
     displayOnRefresh: false,
   };
 }
@@ -131,6 +131,32 @@ function reduceOnEnterInput(state) {
 
 function reduceOnClickOption(state) {
   return reduceOnEnterInput(state);
+}
+
+function reduceOnEndDownInput(state) {
+  const { suggestions } = state;
+  if (suggestions.length) {
+    return {
+      ...state,
+      displayActiveIndex: true,
+      displayPanel: true,
+      activeIndex: suggestions.length - 1,
+    };
+  }
+  return state;
+}
+
+function reduceOnHomeDownInput(state) {
+  const { suggestions } = state;
+  if (suggestions.length) {
+    return {
+      ...state,
+      displayActiveIndex: true,
+      displayPanel: true,
+      activeIndex: 0,
+    };
+  }
+  return state;
 }
 
 function reducer(state, action) {
@@ -160,6 +186,10 @@ function reducer(state, action) {
       return reduceOnCLickDeleteButton(state);
     case ACTIONS.ON_BLUR_INPUT:
       return reduceOnBlurInput(state);
+    case ACTIONS.ON_END_DOWN_INPUT:
+      return reduceOnEndDownInput(state);
+    case ACTIONS.ON_HOME_DOWN_INPUT:
+      return reduceOnHomeDownInput(state);
     default:
       return state;
   }

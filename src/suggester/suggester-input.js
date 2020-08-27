@@ -1,6 +1,6 @@
-import React, { useRef, useEffect } from "react";
-import classnames from "classnames";
-import InputLayer from "./suggester-input-layer";
+import React, { useRef, useEffect } from 'react';
+import classnames from 'classnames';
+import InputLayer from './suggester-input-layer';
 import {
   useSuggesterState,
   onInputChange,
@@ -10,17 +10,19 @@ import {
   onEnterInput,
   onBlurInput,
   onBlurSuggester,
-} from "./component-state";
-import SuggesterButtonDelete from "./suggester-button-delete";
-import onSelect from "./on-select";
+  onEndDownInput,
+  onHomeDownInput,
+} from './component-state';
+import SuggesterButtonDelete from './suggester-button-delete';
+import onSelect from './on-select';
 
 const KEY_BIND = {
-  arrowUp: "ArrowUp",
-  arrowDown: "ArrowDown",
-  home: "Home",
-  end: "End",
-  tab: "Tab",
-  enter: "Enter",
+  arrowUp: 'ArrowUp',
+  arrowDown: 'ArrowDown',
+  home: 'Home',
+  end: 'End',
+  tab: 'Tab',
+  enter: 'Enter',
 };
 
 function Input() {
@@ -46,6 +48,12 @@ function Input() {
       case KEY_BIND.tab:
         dispatch(onBlurSuggester());
         break;
+      case KEY_BIND.home:
+        dispatch(onHomeDownInput());
+        break;
+      case KEY_BIND.end:
+        dispatch(onEndDownInput());
+        break;
       default:
     }
   }
@@ -55,7 +63,7 @@ function Input() {
       if (inputEl.current) {
         const where = inputEl.current.selectionStart;
         if (cursorPos !== where) {
-          if (typeof inputEl.current.setSelectionRange === "function") {
+          if (typeof inputEl.current.setSelectionRange === 'function') {
             inputEl.current.setSelectionRange(cursorPos, cursorPos);
           }
           // TODO for oldest nav
@@ -66,9 +74,7 @@ function Input() {
   );
 
   return (
-    <div
-      className={classnames("renaud-suggester-input-container", { focused })}
-    >
+    <div className={classnames('renaud-suggester-input-container', { focused })}>
       <input
         type="text"
         ref={inputEl}
