@@ -4,6 +4,10 @@
   "version": "0.2.3",
   "license": "MIT",
   "author": "renaud.genevois",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/renaud23/idb-suggester.git"
+  },
   "main": "./lib/index.js",
   "description": "a simple suggester, using indexedDB.",
   "scripts": {
