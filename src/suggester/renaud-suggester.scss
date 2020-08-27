@@ -92,7 +92,9 @@ $searchBarColor: black;
         border-radius: 50%;
         right: 7px;
         top: 7px;
-        text-align: center;
+        display: flex;
+        align-items: center;
+        justify-content: center;
         cursor: pointer;
 
         &:hover {

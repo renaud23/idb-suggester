@@ -1,11 +1,13 @@
 /* eslint-disable no-restricted-globals */
-import { createStore, bulkInsert } from "../store";
+import 'core-js/stable';
+import 'regenerator-runtime/runtime';
+import { createStore, bulkInsert } from '../store';
 import {
   BULK_INSERT_MESSAGES,
   CONSTANTE,
   prepareStringIndexation,
   createTokenizer,
-} from "../commons";
+} from '../commons';
 
 function createPrepareEntity(fields = [], tokenize = false) {
   const tokenizeIt = createTokenizer(fields);

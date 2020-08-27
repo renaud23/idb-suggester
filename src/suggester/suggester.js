@@ -114,7 +114,15 @@ Suggester.defaultProps = {
 };
 
 Suggester.propTypes = {
-  store: PropTypes.object,
+  store: function (props, propName, componentName) {
+    if (!(propName in props)) {
+      return new Error('Store is required !');
+    }
+    const { id } = props[propName];
+    if (!id || id !== ID_STORE_IDENTIFIER) {
+      return new Error('Not a valid store !');
+    }
+  },
   // optional
   optionComponent: PropTypes.elementType,
   how: PropTypes.number,
