@@ -73,8 +73,8 @@ export function COG() {
           placeHolder="Rechercher dans le COG."
           optionComponent={CustomCOGOption}
           displayPath="libelle"
-          onSelect={function (item) {
-            console.log('onSelect', item);
+          onSelect={function (item, all, query) {
+            console.log('onSelect', item, all, query);
           }}
         />
       </div>
@@ -103,8 +103,8 @@ export function NAF() {
           displayPath="libelle"
           placeHolder="Recherche dans la naf."
           optionComponent={CustomNafOption}
-          onSelect={function (item) {
-            console.log('onSelect naf', item);
+          onSelect={function (item, all, query) {
+            console.log('onSelect naf', item, all, query);
           }}
           searchType={SEARCH_TYPES.tokens}
           fields={NAF_FIELDS}

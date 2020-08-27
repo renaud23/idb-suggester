@@ -1,5 +1,5 @@
 /* eslint-disable no-restricted-globals */
-import 'core-js/stable';
+// import 'core-js/stable';
 import 'regenerator-runtime/runtime';
 import { createStore, bulkInsert } from '../store';
 import {

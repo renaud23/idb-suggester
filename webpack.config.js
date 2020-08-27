@@ -1,15 +1,15 @@
-const path = require("path");
+const path = require('path');
 
 module.exports = {
-  mode: "production",
-  entry: "./src/index.js",
+  mode: 'production',
+  entry: './src/index.js',
   output: {
-    path: path.resolve("lib"),
-    filename: "index.js",
-    libraryTarget: "commonjs2",
+    path: path.resolve('lib'),
+    filename: 'index.js',
+    libraryTarget: 'commonjs2',
   },
   resolve: {
-    extensions: [".js"],
+    extensions: ['.js'],
   },
 
   module: {
@@ -17,7 +17,7 @@ module.exports = {
       {
         test: /\.js?$/,
         exclude: /(node_modules)/,
-        use: "babel-loader",
+        use: 'babel-loader',
       },
       {
         test: /\.worker\.(c|m)?js$/i,
@@ -28,10 +28,10 @@ module.exports = {
       },
       {
         test: /\.s[ac]ss$/i,
-        use: ["style-loader", "css-loader", "sass-loader"],
+        use: ['style-loader', 'css-loader', 'sass-loader'],
       },
     ],
   },
-  target: "web",
-  externals: { react: "react" },
+  target: 'web',
+  externals: { react: 'react' },
 };
