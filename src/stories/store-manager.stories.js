@@ -7,7 +7,8 @@ import classnames from 'classnames';
 import '../custom-option.scss';
 
 async function fetchCommunes() {
-  const communes = await fetch('/communes-2019.json').then((data) => data.json());
+  console.log(`${window.location.pathname}`);
+  const communes = await fetch(`/communes-2019.json`).then((data) => data.json());
   return communes.map(function (commune, i) {
     const { com } = commune;
     return { ...commune, id: `COM-${i}-${com}` };

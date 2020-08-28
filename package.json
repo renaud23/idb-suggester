@@ -13,7 +13,7 @@
   "scripts": {
     "build": "webpack",
     "storybook": "start-storybook -p 6006 -s public",
-    "build-storybook": "build-storybook -s public"
+    "build-storybook": "build-storybook -s public -o static"
   },
   "eslintConfig": {
     "extends": "react-app"
