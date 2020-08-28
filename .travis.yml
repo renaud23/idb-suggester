@@ -1,0 +1,15 @@
+language: node_js
+node_js:
+ - "stable"
+script:
+  - npm test
+  - npm run build-storybook
+deploy:
+  provider: pages
+  skip-cleanup: true
+  local_dir: storybook-static
+  github-token: $GITHUB_TOKEN
+  keep-history: true
+  target_branch: gh-pages
+  on:
+    branch: master
