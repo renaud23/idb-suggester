@@ -1,6 +1,4 @@
-import { createStore, bulkInsert, clearStore, searchByPrefix } from './store';
-import { BULK_INSERT_MESSAGES } from './commons';
-import BulkInsertWorker from './worker/bulk.worker';
+export { default as BulkInsertWorker } from './worker/bulk.worker';
 
 export {
   createStore,
@@ -13,13 +11,3 @@ export {
   ID_STORE_IDENTIFIER,
 } from './store';
 export { BULK_INSERT_MESSAGES, SEARCH_TYPES, openStorage } from './commons';
-export { default as BulkInsertWorker } from './worker/bulk.worker';
-
-export default {
-  createStore,
-  clearStore,
-  bulkInsert,
-  BULK_INSERT_MESSAGES,
-  BulkInsertWorker,
-  searchByPrefix,
-};
