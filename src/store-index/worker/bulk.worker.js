@@ -28,14 +28,14 @@ function createPrepareEntity(fields = [], tokenize = false) {
 
 self.onmessage = (e) => {
   const { data } = e;
-  const { idbName, entities, fields, tokenize } = data;
+  const { idbName, entities, fields, tokenize, version } = data;
   if (!idbName) return;
   const prepareEntity = createPrepareEntity(fields, tokenize);
   const preparedEntities = entities.map(function (e) {
     return prepareEntity(e);
   });
 
-  createStore(idbName).then(function (store) {
+  createStore(idbName, version).then(function (store) {
     bulkInsert(store, preparedEntities, function (arg) {
       self.postMessage(arg);
       const { message } = arg;
