@@ -1,5 +1,3 @@
-export { default as BulkInsertWorker } from './worker/bulk.worker';
-
 export {
   createStore,
   bulkInsert,
@@ -11,3 +9,4 @@ export {
   ID_STORE_IDENTIFIER,
 } from './store';
 export { BULK_INSERT_MESSAGES, SEARCH_TYPES, openStorage } from './commons';
+export { default as BulkInsertWorker } from './worker/bulk.worker';
