@@ -3,13 +3,10 @@ node_js:
  - "stable"
 script:
   - npm test
-  - npm run build-storybook
+  - npm run build
 deploy:
-  provider: pages
-  skip-cleanup: true
-  local_dir: static
-  github-token: $GITHUB_TOKEN
-  keep-history: true
-  target_branch: gh-pages
-  on:
-    branch: master
+  provider: npm
+  email: "renaud.genevois@hotmail.fr"
+  api_key: "$NPM_TOKEN"
+on:
+  branch: release
