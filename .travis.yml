@@ -2,11 +2,11 @@ language: node_js
 node_js:
   - 'stable'
 script:
-  - npm test
-  - npm run build
+  - yarn test
+  - yarn build
 deploy:
   provider: npm
-  email: 'renaud.genevois@hotmail.fr'
+  email: '$NPM_EMAIL'
   api_key: '$NPM_TOKEN'
   before_deploy:
     - rm -rf release
