@@ -33,16 +33,21 @@ function ActionLoad({ status, fetch, fields, onStartLoad, onEndLoad, tokenize })
     );
   }
   return (
-    <BulkTaskProgress
-      idbName={name}
-      data={data}
-      fields={fields}
-      tokenize={tokenize}
-      finished={function () {
-        setLoad(false);
-        onEndLoad();
-      }}
-    />
+    <>
+      <div className="waiting"></div>
+      <div className="bulk-container">
+        <BulkTaskProgress
+          idbName={name}
+          data={data}
+          fields={fields}
+          tokenize={tokenize}
+          finished={function () {
+            setLoad(false);
+            onEndLoad();
+          }}
+        />
+      </div>
+    </>
   );
 }
 

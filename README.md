@@ -5,6 +5,9 @@ Un second composant permet de charger l'index à partir d'une liste d'entités.
 
 `npm install idb-suggester` ou `yarn add idb-suggester`
 
+## DEMO
+[DEMO](https://renaud23.github.io/test-idb-suggester/)
+
 ## Créer un index dans IDB.
 
 L'index contient une liste d'entités et un index permettant des recherches par préfix sur celle-ci.
