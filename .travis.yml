@@ -8,5 +8,7 @@ deploy:
   provider: npm
   email: 'renaud.genevois@hotmail.fr'
   api_key: '$NPM_TOKEN'
+  before_deploy:
+    - rm -rf release
   on:
     branch: release
