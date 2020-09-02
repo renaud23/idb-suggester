@@ -9,6 +9,9 @@
     "url": "https://github.com/renaud23/idb-suggester.git"
   },
   "main": "release/index.js",
+  "files": [
+    "release"
+  ],
   "description": "a simple suggester, using indexedDB.",
   "scripts": {
     "build": "webpack",
