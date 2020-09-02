@@ -1,12 +1,12 @@
 language: node_js
 node_js:
- - "stable"
+  - 'stable'
 script:
   - npm test
   - npm run build
 deploy:
   provider: npm
-  email: "renaud.genevois@hotmail.fr"
-  api_key: "$NPM_TOKEN"
-on:
-  branch: release
+  email: 'renaud.genevois@hotmail.fr'
+  api_key: '$NPM_TOKEN'
+  on:
+    branch: release
