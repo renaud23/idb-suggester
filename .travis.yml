@@ -2,7 +2,7 @@ language: node_js
 node_js:
   - 'stable'
 script:
-  - yarn test
+  - npm test
   - yarn build
 deploy:
   provider: npm
