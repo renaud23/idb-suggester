@@ -8,7 +8,6 @@ jobs:
   include:
     - stage: build and deploy
       script:
-        - yarn test
         - yarn build
       deploy:
         provider: npm
