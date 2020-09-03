@@ -1,19 +1,19 @@
-import React from "react";
-import { useSuggesterState } from "./component-state";
-import classnames from "classnames";
+import React from 'react';
+import { useSuggesterState } from './component-state';
+import classnames from 'classnames';
 
-export default React.forwardRef(function SuggesterContainer({ children }, ref) {
+export default React.forwardRef(function SuggesterContainer({ children, className }, ref) {
   const [state] = useSuggesterState();
   const { focused } = state;
   return (
     <div
-      className={classnames("renaud-suggester-container", {
+      className={classnames('idb-suggester-container', className, {
         focused,
         unfocused: !focused,
       })}
       ref={ref}
     >
-      <div className="renaud-suggester">{children}</div>
+      <div className="idb-suggester">{children}</div>
     </div>
   );
 });

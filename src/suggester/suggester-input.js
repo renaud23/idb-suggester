@@ -74,7 +74,7 @@ function Input() {
   );
 
   return (
-    <div className={classnames('renaud-suggester-input-container', { focused })}>
+    <div className={classnames('idb-suggester-input-container', { focused })}>
       <input
         type="text"
         ref={inputEl}
@@ -89,7 +89,7 @@ function Input() {
           dispatch(onInputChange(e.target.value, e.target.selectionStart));
         }}
         value={inputValue}
-        className="renaud-suggester-input"
+        className="idb-suggester-input"
         onFocus={function (e) {
           e.preventDefault();
           e.stopPropagation();

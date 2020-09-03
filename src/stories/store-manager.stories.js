@@ -70,6 +70,7 @@ export function COG() {
     <>
       <div style={{ width: '280px' }}>
         <Suggester
+          className="custom-cog"
           store={store}
           placeHolder="Rechercher dans le COG."
           optionComponent={CustomCOGOption}

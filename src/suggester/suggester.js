@@ -13,7 +13,7 @@ import {
   onRefreshSuggestions,
   onBlurSuggester,
 } from './component-state';
-import './renaud-suggester.scss';
+import './idb-suggester.scss';
 
 async function refreshSuggestion(prefix, searching, how) {
   if (prefix.trim().length) {
@@ -37,6 +37,7 @@ function Suggester({
   fields,
   placeHolder,
   language,
+  className,
 }) {
   const containerEl = useRef();
 
@@ -96,7 +97,7 @@ function Suggester({
   );
   return (
     <SuggesterStateContext.Provider value={context}>
-      <SuggesterContainer ref={containerEl}>
+      <SuggesterContainer ref={containerEl} className={className}>
         <Input />
         <Panel optionComponent={optionComponent} />
       </SuggesterContainer>
@@ -129,6 +130,7 @@ Suggester.propTypes = {
   displayPath: PropTypes.string,
   placeHolder: PropTypes.string,
   language: PropTypes.string,
+  className: PropTypes.string,
 };
 
 export default Suggester;
