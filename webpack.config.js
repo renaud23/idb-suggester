@@ -4,7 +4,7 @@ module.exports = {
   mode: 'production',
   entry: './src/index.js',
   output: {
-    path: path.resolve('release'),
+    path: path.resolve('./release'),
     filename: 'index.js',
     libraryTarget: 'commonjs2',
   },

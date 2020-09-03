@@ -1,14 +1,14 @@
 {
   "mode": "production",
   "name": "idb-suggester",
-  "version": "0.2.12",
+  "version": "0.2.21",
   "license": "MIT",
   "author": "renaud.genevois",
   "repository": {
     "type": "git",
     "url": "https://github.com/renaud23/idb-suggester.git"
   },
-  "main": "release/index.js",
+  "main": "./release/index.js",
   "files": [
     "release"
   ],
