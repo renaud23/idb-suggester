@@ -1,7 +1,7 @@
 {
   "mode": "production",
   "name": "idb-suggester",
-  "version": "0.2.22",
+  "version": "0.2.23",
   "license": "MIT",
   "author": "renaud.genevois",
   "repository": {
@@ -10,7 +10,7 @@
   },
   "main": "./release/index.js",
   "files": [
-    "release"
+    "release", "themes"
   ],
   "description": "a simple suggester, using indexedDB.",
   "scripts": {
