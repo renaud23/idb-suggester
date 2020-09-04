@@ -1,0 +1,93 @@
+.idb-suggester-container {
+	position: relative;
+	min-height: 49px;
+	z-index: 1;
+}
+
+.idb-suggester-container .idb-suggester {
+	position: absolute;
+	min-height: 45px;
+	border: solid 2px magenta;
+	border-radius: 10px;
+	background-color: Bisque;
+	width: 100%;
+}
+
+.idb-suggester-container .idb-suggester.focused {
+	box-shadow: 0 0 6px red;
+	border-radius: 10px;
+}
+
+.idb-suggester-container .idb-suggester .idb-suggester-panel-container {
+	display: block;
+}
+
+.idb-suggester-container .idb-suggester .idb-suggester-panel-container.display {
+	z-index: 1;
+}
+
+.idb-suggester-container .idb-suggester .idb-suggester-panel-container.hide {
+	z-index: 0;
+}
+
+.idb-suggester-container .idb-suggester .idb-suggester-panel-container .idb-suggester-panel {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+
+.idb-suggester-container .idb-suggester .idb-suggester-input-container .idb-suggester-input {
+	font-family: Verdana, Geneva, sans-serif;
+	font-size: 16px;
+	outline: none;
+	border: none;
+	padding: 0 0 0 4px;
+	height: 45px;
+	width: calc(100% - 35px);
+	background-color: transparent;
+	color: maroon;
+}
+
+.idb-suggester-container .idb-suggester .idb-suggester-input-container .idb-suggester-input-layer {
+	font-family: Verdana, Geneva, sans-serif;
+	font-size: 16px;
+	position: absolute;
+	border-radius: 10px 0 0 0;
+	top: 0;
+	padding: 0 0 0 4px;
+	white-space: nowrap;
+	overflow: hidden;
+	width: calc(100% - 35px);
+	height: 45px;
+	line-height: 45px;
+	background-color: Bisque;
+	color: maroon;
+}
+
+.idb-suggester-container .idb-suggester .idb-suggester-input-container .idb-suggester-button-delete {
+	position: absolute;
+	display: block;
+	width: 22px;
+	height: 22px;
+	background-color: Crimson;
+	border-radius: 50%;
+	right: 7px;
+	top: 12px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	cursor: pointer;
+}
+
+.idb-suggester-container .idb-suggester .idb-suggester-input-container .idb-suggester-button-delete:hover {
+	background-color: tomato;
+}
+
+.idb-suggester-container .idb-suggester .idb-suggester-input-container .idb-suggester-button-delete:focus {
+	outline: none;
+	box-shadow: 0em 0em 0.1em 0.1em magenta;
+}
+
+.idb-suggester-container .idb-suggester .idb-suggestion-option {
+	overflow-x: hidden;
+}

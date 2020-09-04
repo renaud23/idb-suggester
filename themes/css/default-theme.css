@@ -1,0 +1,95 @@
+.idb-suggester-container {
+	position: relative;
+	text-align: left;
+	font-size: 14px;
+}
+
+.idb-suggester-container .idb-suggester .idb-suggester-panel-container {
+	position: absolute;
+	display: inline-block;
+	width: max-content;
+	margin-top: 2px;
+}
+
+.idb-suggester-container .idb-suggester .idb-suggester-panel-container.display {
+	z-index: 1;
+}
+
+.idb-suggester-container .idb-suggester .idb-suggester-panel-container.hide {
+	z-index: 0;
+}
+
+.idb-suggester-container .idb-suggester .idb-suggester-panel-container .idb-suggester-panel {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+	box-shadow: 0em 0em 0.3em 0.1em gray;
+	background-color: snow;
+	border-radius: 5px;
+	padding: 4px 6px;
+}
+
+.idb-suggester-container .idb-suggester .idb-suggester-input-container {
+	position: relative;
+	background-color: ivory;
+	border-radius: 15px;
+	padding: 0 25px 0 15px;
+	border: solid lightblue 2px;
+	width: calc(100% - 44px);
+	height: 30px;
+}
+
+.idb-suggester-container .idb-suggester .idb-suggester-input-container.focused {
+	border: solid royalblue 2px;
+}
+
+.idb-suggester-container .idb-suggester .idb-suggester-input-container .idb-suggester-input {
+	outline: none;
+	border: none;
+	height: calc(100% - 2px);
+	background-color: ivory;
+	color: black;
+	width: 100%;
+	font-family: Verdana, Geneva, sans-serif;
+	font-size: 12px;
+}
+
+.idb-suggester-container .idb-suggester .idb-suggester-input-container .idb-suggester-input-layer {
+	position: absolute;
+	top: 0;
+	background-color: ivory;
+	width: calc(100% - 32px);
+	padding-left: 2px;
+	padding-top: 8px;
+	height: calc(100% - 8px);
+	color: black;
+	overflow-x: hidden;
+	overflow-y: hidden;
+	white-space: nowrap;
+	font-family: Verdana, Geneva, sans-serif;
+	font-size: 12px;
+}
+
+.idb-suggester-container .idb-suggester .idb-suggester-input-container .idb-suggester-button-delete {
+	position: absolute;
+	display: block;
+	width: 16px;
+	height: 17px;
+	background-color: slategrey;
+	border-radius: 50%;
+	right: 7px;
+	top: 7px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	cursor: pointer;
+}
+
+.idb-suggester-container .idb-suggester .idb-suggester-input-container .idb-suggester-button-delete:hover {
+	background-color: lightgrey;
+}
+
+.idb-suggester-container .idb-suggester .idb-suggester-input-container .idb-suggester-button-delete:focus {
+	outline: none;
+	box-shadow: 0em 0em 0.1em 0.1em goldenrod;
+}
