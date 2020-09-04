@@ -13,7 +13,7 @@ import {
   onRefreshSuggestions,
   onBlurSuggester,
 } from './component-state';
-// import './idb-suggester.scss';
+// import './themes/pinky-theme.scss';
 
 async function refreshSuggestion(prefix, searching, how) {
   if (prefix.trim().length) {
@@ -38,6 +38,7 @@ function Suggester({
   placeHolder,
   language,
   className,
+  theme,
 }) {
   const containerEl = useRef();
 
@@ -79,6 +80,16 @@ function Suggester({
     },
     [dispatch, state]
   );
+
+  useEffect(
+    function () {
+      if (theme) {
+        import(`./themes/${theme}.scss`).then(function () {});
+      }
+    },
+    [theme]
+  );
+
   useEffect(
     function () {
       function handleClickBody(e) {
