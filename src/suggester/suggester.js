@@ -13,7 +13,7 @@ import {
   onRefreshSuggestions,
   onBlurSuggester,
 } from './component-state';
-import './renaud-suggester.scss';
+// import './themes/pinky-theme.scss';
 
 async function refreshSuggestion(prefix, searching, how) {
   if (prefix.trim().length) {
@@ -37,6 +37,8 @@ function Suggester({
   fields,
   placeHolder,
   language,
+  className,
+  theme,
 }) {
   const containerEl = useRef();
 
@@ -78,6 +80,16 @@ function Suggester({
     },
     [dispatch, state]
   );
+
+  useEffect(
+    function () {
+      if (theme) {
+        import(`./themes/${theme}.scss`).then(function () {});
+      }
+    },
+    [theme]
+  );
+
   useEffect(
     function () {
       function handleClickBody(e) {
@@ -96,7 +108,7 @@ function Suggester({
   );
   return (
     <SuggesterStateContext.Provider value={context}>
-      <SuggesterContainer ref={containerEl}>
+      <SuggesterContainer ref={containerEl} className={className}>
         <Input />
         <Panel optionComponent={optionComponent} />
       </SuggesterContainer>
@@ -129,6 +141,7 @@ Suggester.propTypes = {
   displayPath: PropTypes.string,
   placeHolder: PropTypes.string,
   language: PropTypes.string,
+  className: PropTypes.string,
 };
 
 export default Suggester;

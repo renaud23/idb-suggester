@@ -1,12 +1,12 @@
-import React from "react";
-import OptionContainer from "./suggester-option-container";
-import { useSuggesterState } from "./component-state";
-import classnames from "classnames";
+import React from 'react';
+import OptionContainer from './suggester-option-container';
+import { useSuggesterState } from './component-state';
+import classnames from 'classnames';
 
 function PanelContent({ suggestions, optionComponent: Component, display }) {
   if (display) {
     return (
-      <ul className={classnames("renaud-suggester-panel")}>
+      <ul className={classnames('idb-suggester-panel')}>
         {suggestions.map(function (s, i) {
           const { id } = s;
           return (
@@ -31,7 +31,7 @@ function Panel({ optionComponent }) {
 
   return (
     <div
-      className={classnames("renaud-suggester-panel-container", {
+      className={classnames('idb-suggester-panel-container', {
         display: displayPanel,
         hide: !displayPanel,
       })}

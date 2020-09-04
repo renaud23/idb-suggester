@@ -6,7 +6,7 @@
 $searchBarBackgroundColor: ivory;
 $searchBarColor: black;
 
-.renaud-suggester-container {
+.idb-suggester-container {
   position: relative;
   text-align: left;
   font-size: 14px;
@@ -16,8 +16,8 @@ $searchBarColor: black;
   &.unfocused {
   }
 
-  .renaud-suggester {
-    .renaud-suggester-panel-container {
+  .idb-suggester {
+    .idb-suggester-panel-container {
       position: absolute;
       display: inline-block;
       width: max-content;
@@ -30,7 +30,7 @@ $searchBarColor: black;
         z-index: 0;
       }
 
-      .renaud-suggester-panel {
+      .idb-suggester-panel {
         margin: 0;
         padding: 0;
         list-style: none;
@@ -42,7 +42,7 @@ $searchBarColor: black;
       }
     }
 
-    .renaud-suggester-input-container {
+    .idb-suggester-input-container {
       position: relative;
       background-color: $searchBarBackgroundColor;
       border-radius: 15px;
@@ -56,7 +56,7 @@ $searchBarColor: black;
         border: solid royalblue 2px;
       }
 
-      .renaud-suggester-input {
+      .idb-suggester-input {
         outline: none;
         border: none;
         height: calc(100% - 2px);
@@ -67,7 +67,7 @@ $searchBarColor: black;
         @include fontPolicy();
       }
 
-      .renaud-suggester-input-layer {
+      .idb-suggester-input-layer {
         position: absolute;
         top: 0;
         background-color: $searchBarBackgroundColor;
@@ -83,7 +83,7 @@ $searchBarColor: black;
         @include fontPolicy();
       }
 
-      .renaud-suggester-button-delete {
+      .idb-suggester-button-delete {
         position: absolute;
         display: block;
         width: 16px;
@@ -108,7 +108,7 @@ $searchBarColor: black;
       }
     }
 
-    .renaud-suggestion-option {
+    .idb-suggestion-option {
     }
   }
 }

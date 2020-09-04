@@ -5,6 +5,7 @@ import { StoreManager } from '../store-manager';
 import { createStore, SEARCH_TYPES } from '../store-index';
 import classnames from 'classnames';
 import '../custom-option.scss';
+// import '../suggester/themes/pinky-theme.scss';
 
 async function fetchCommunes() {
   console.log(`${window.location.pathname}`);
@@ -54,7 +55,7 @@ function CustomNafOption({ suggestion }) {
   );
 }
 
-export function COG() {
+const TemplateCOG = ({ theme }) => {
   const [store, setStore] = useState(undefined);
   useEffect(function () {
     async function init() {
@@ -64,13 +65,14 @@ export function COG() {
     init();
   }, []);
   if (!store) {
-    return null;
+    return <div>waiting...</div>;
   }
   return (
     <>
       <div style={{ width: '280px' }}>
         <Suggester
           store={store}
+          theme={theme}
           placeHolder="Rechercher dans le COG."
           optionComponent={CustomCOGOption}
           displayPath="libelle"
@@ -82,7 +84,13 @@ export function COG() {
       <StoreManager name={COG_IDB_NAME} version={1} fields={COG_FIELDS} fetch={fetchCommunes} />
     </>
   );
-}
+};
+
+export const COG = TemplateCOG.bind({});
+
+COG.args = {
+  theme: 'default-theme',
+};
 
 export function NAF() {
   const [store, setStore] = useState(undefined);
@@ -124,6 +132,8 @@ export function NAF() {
 
 export default {
   title: 'Store/create',
-  component: StoreManager,
-  argTypes: {},
+  component: Suggester,
+  argTypes: {
+    theme: { control: { type: 'inline-radio', options: ['default-theme', 'pinky-theme'] } },
+  },
 };

@@ -1,6 +1,6 @@
-import React from "react";
-import { useSuggesterState, onMouseEnterInputLayer } from "./component-state";
-import getValue from "./get-display-value";
+import React from 'react';
+import { useSuggesterState, onMouseEnterInputLayer } from './component-state';
+import getValue from './get-display-value';
 
 function InputLayer() {
   const [state, dispatch] = useSuggesterState();
@@ -8,7 +8,7 @@ function InputLayer() {
   if (displayActiveIndex) {
     return (
       <div
-        className="renaud-suggester-input-layer"
+        className="idb-suggester-input-layer"
         onMouseMove={function (e) {
           e.stopPropagation();
           dispatch(onMouseEnterInputLayer());
