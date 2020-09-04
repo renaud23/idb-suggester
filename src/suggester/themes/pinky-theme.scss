@@ -59,6 +59,7 @@ $inputBorderSize: 2px;
         height: $inputHeight;
         width: calc(100% - 35px);
         background-color: transparent;
+        color: maroon;
       }
 
       .idb-suggester-input-layer {
@@ -73,6 +74,7 @@ $inputBorderSize: 2px;
         height: $inputHeight;
         line-height: $inputHeight;
         background-color: $inputBackgroundColor;
+        color: maroon;
       }
 
       .idb-suggester-button-delete {
@@ -80,7 +82,7 @@ $inputBorderSize: 2px;
         display: block;
         width: 22px;
         height: 22px;
-        background-color: brown;
+        background-color: Crimson;
         border-radius: 50%;
         right: 7px;
         top: 12px;
