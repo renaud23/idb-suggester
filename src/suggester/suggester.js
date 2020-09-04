@@ -13,7 +13,7 @@ import {
   onRefreshSuggestions,
   onBlurSuggester,
 } from './component-state';
-import './idb-suggester.scss';
+// import './idb-suggester.scss';
 
 async function refreshSuggestion(prefix, searching, how) {
   if (prefix.trim().length) {

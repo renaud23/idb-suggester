@@ -13,7 +13,9 @@ export default React.forwardRef(function SuggesterContainer({ children, classNam
       })}
       ref={ref}
     >
-      <div className="idb-suggester">{children}</div>
+      <div className={classnames('idb-suggester', { focused, unfocused: !focused })}>
+        {children}
+      </div>
     </div>
   );
 });
