@@ -83,8 +83,11 @@ function Suggester({
 
   useEffect(
     function () {
+      async function change() {
+        return await import(`./themes/${theme}.scss`);
+      }
       if (theme) {
-        import(`./themes/${theme}.scss`).then(function () {});
+        change();
       }
     },
     [theme]
