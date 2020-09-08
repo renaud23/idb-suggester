@@ -4,13 +4,14 @@ import { useSuggesterState } from './component-state';
 import classnames from 'classnames';
 
 function PanelContent({ suggestions, optionComponent: Component, display }) {
+  const { length } = suggestions;
   if (display) {
     return (
       <ul className={classnames('idb-suggester-panel')}>
         {suggestions.map(function (s, i) {
           const { id } = s;
           return (
-            <OptionContainer key={id} item={s} index={i}>
+            <OptionContainer key={id} item={s} index={i} last={i === length - 1} first={i === 0}>
               <Component suggestion={s} />
             </OptionContainer>
           );

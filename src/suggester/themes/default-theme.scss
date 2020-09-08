@@ -5,6 +5,7 @@
 
 $searchBarBackgroundColor: ivory;
 $searchBarColor: black;
+$inputHeight: 32px;
 
 .idb-suggester-container {
   position: relative;
@@ -17,6 +18,15 @@ $searchBarColor: black;
   }
 
   .idb-suggester {
+    border-radius: 15px;
+    border: solid lightblue 2px;
+    background-color: $searchBarBackgroundColor;
+    height: $inputHeight;
+
+    &.focused {
+      border: solid royalblue 2px;
+    }
+
     .idb-suggester-panel-container {
       position: absolute;
       display: inline-block;
@@ -44,40 +54,34 @@ $searchBarColor: black;
 
     .idb-suggester-input-container {
       position: relative;
-      background-color: $searchBarBackgroundColor;
-      border-radius: 15px;
-      padding: 0 25px 0 15px;
-
-      border: solid lightblue 2px;
       width: calc(100% - 44px);
-      height: 30px;
-
-      &.focused {
-        border: solid royalblue 2px;
-      }
+      padding-left: 15px;
 
       .idb-suggester-input {
         outline: none;
         border: none;
-        height: calc(100% - 2px);
-        background-color: $searchBarBackgroundColor;
+        border: 0;
+        padding: 0;
+        line-height: $inputHeight;
+        background-color: transparent;
         color: $searchBarColor;
         width: 100%;
 
         @include fontPolicy();
+
+        &.display {
+          color: transparent;
+        }
       }
 
       .idb-suggester-input-layer {
         position: absolute;
         top: 0;
-        background-color: $searchBarBackgroundColor;
-        width: calc(100% - 32px);
-        padding-left: 2px;
-        padding-top: 8px;
-        height: calc(100% - 8px);
-        color: $searchBarColor;
+        background-color: transparent;
+        width: calc(100% - 15px);
         overflow-x: hidden;
-        overflow-y: hidden;
+        color: $searchBarColor;
+        line-height: $inputHeight;
         white-space: nowrap;
 
         @include fontPolicy();
@@ -90,7 +94,7 @@ $searchBarColor: black;
         height: 17px;
         background-color: slategrey;
         border-radius: 50%;
-        right: 7px;
+        right: -19px;
         top: 7px;
         display: flex;
         align-items: center;
@@ -99,11 +103,18 @@ $searchBarColor: black;
 
         &:hover {
           background-color: lightgrey;
+          svg {
+            fill: slategrey;
+          }
         }
 
         &:focus {
           outline: none;
           box-shadow: 0em 0em 0.1em 0.1em goldenrod;
+        }
+
+        svg {
+          fill: lightgrey;
         }
       }
     }

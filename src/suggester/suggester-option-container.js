@@ -3,7 +3,7 @@ import classnames from 'classnames';
 import { useSuggesterState, onMouseEnterOption, onClickOption } from './component-state';
 import onSelect from './on-select';
 
-function OptionContainer({ children, index }) {
+function OptionContainer({ children, index, last, first }) {
   const [state, dispatch] = useSuggesterState();
   const { activeIndex, selectedItem, suggestions } = state;
   const active = index === activeIndex;
@@ -20,7 +20,7 @@ function OptionContainer({ children, index }) {
 
   return (
     <li
-      className={classnames('idb-suggestion-option', { active, selected })}
+      className={classnames('idb-suggestion-option', { active, selected, last, first })}
       onClick={function (e) {
         e.stopPropagation();
         e.preventDefault();

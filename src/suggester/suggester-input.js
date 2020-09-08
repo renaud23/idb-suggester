@@ -27,7 +27,7 @@ const KEY_BIND = {
 
 function Input() {
   const [state, dispatch] = useSuggesterState();
-  const { focused, inputValue, placeHolder, cursorPos } = state;
+  const { focused, inputValue, placeHolder, cursorPos, displayActiveIndex } = state;
   const inputEl = useRef();
   function handleKeyPressed(e) {
     e.stopPropagation();
@@ -74,7 +74,11 @@ function Input() {
   );
 
   return (
-    <div className={classnames('idb-suggester-input-container', { focused })}>
+    <div
+      className={classnames('idb-suggester-input-container', {
+        focused,
+      })}
+    >
       <input
         type="text"
         ref={inputEl}
@@ -89,7 +93,7 @@ function Input() {
           dispatch(onInputChange(e.target.value, e.target.selectionStart));
         }}
         value={inputValue}
-        className="idb-suggester-input"
+        className={classnames('idb-suggester-input', { display: displayActiveIndex })}
         onFocus={function (e) {
           e.preventDefault();
           e.stopPropagation();
