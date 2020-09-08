@@ -5,7 +5,7 @@ import { StoreManager } from '../store-manager';
 import { createStore, SEARCH_TYPES } from '../store-index';
 import classnames from 'classnames';
 import '../custom-option.scss';
-// import '../suggester/themes/pinky-theme.scss';
+import '../suggester/themes/current-theme.scss';
 
 async function fetchCommunes() {
   console.log(`${window.location.pathname}`);
@@ -55,7 +55,7 @@ function CustomNafOption({ suggestion }) {
   );
 }
 
-const TemplateCOG = ({ theme }) => {
+const TemplateCOG = () => {
   const [store, setStore] = useState(undefined);
   useEffect(function () {
     async function init() {
@@ -72,7 +72,6 @@ const TemplateCOG = ({ theme }) => {
       <div style={{ width: '280px' }}>
         <Suggester
           store={store}
-          theme={theme}
           placeHolder="Rechercher dans le COG."
           optionComponent={CustomCOGOption}
           displayPath="libelle"
