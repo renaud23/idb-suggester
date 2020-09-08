@@ -5,7 +5,7 @@ import { StoreManager } from '../store-manager';
 import { createStore, SEARCH_TYPES } from '../store-index';
 import classnames from 'classnames';
 import '../custom-option.scss';
-import '../suggester/themes/current-theme.scss';
+import '../suggester/themes/default-theme.scss';
 
 async function fetchCommunes() {
   console.log(`${window.location.pathname}`);

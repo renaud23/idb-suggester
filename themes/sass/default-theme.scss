@@ -60,17 +60,21 @@ $searchBarColor: black;
         outline: none;
         border: none;
         height: calc(100% - 2px);
-        background-color: $searchBarBackgroundColor;
+        background-color: transparent;
         color: $searchBarColor;
         width: 100%;
 
         @include fontPolicy();
+
+        &.display{
+          color: transparent;
+        }
       }
 
       .idb-suggester-input-layer {
         position: absolute;
         top: 0;
-        background-color: $searchBarBackgroundColor;
+        background-color: transparent;
         width: calc(100% - 32px);
         padding-left: 2px;
         padding-top: 8px;
