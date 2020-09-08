@@ -128,6 +128,7 @@ Suggester.defaultProps = {
   searchType: SEARCH_TYPES.prefix,
   placeHolder: 'Search...',
   language: 'French',
+  searchIcon: undefined,
 };
 
 Suggester.propTypes = {
@@ -142,6 +143,7 @@ Suggester.propTypes = {
   },
   // optional
   optionComponent: PropTypes.elementType,
+  searchIcon: PropTypes.elementType,
   how: PropTypes.number,
   displayPath: PropTypes.string,
   placeHolder: PropTypes.string,
