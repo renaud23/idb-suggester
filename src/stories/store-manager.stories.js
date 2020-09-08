@@ -4,8 +4,10 @@ import { Suggester } from '../suggester';
 import { StoreManager } from '../store-manager';
 import { createStore, SEARCH_TYPES } from '../store-index';
 import classnames from 'classnames';
+import { SearchIconDefault } from '../suggester';
 import '../custom-option.scss';
 import '../suggester/themes/default-theme.scss';
+import './search-icon.scss';
 
 async function fetchCommunes() {
   console.log(`${window.location.pathname}`);
@@ -108,7 +110,9 @@ export function NAF() {
       <div style={{ width: '380px' }}>
         <Suggester
           store={store}
+          className="with-icon"
           displayPath="libelle"
+          searchIcon={SearchIconDefault}
           placeHolder="Recherche dans la naf."
           optionComponent={CustomNafOption}
           onSelect={function (item, all, query) {

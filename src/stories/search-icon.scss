@@ -1,0 +1,30 @@
+.with-icon {
+  .idb-suggester {
+    /*  */
+    .search-icon {
+      fill: gray;
+      position: absolute;
+      top: 4px;
+      left: 3px;
+      z-index: 1;
+    }
+
+    /*  */
+    .idb-suggester-panel-container {
+      .idb-suggester-panel {
+      }
+    }
+
+    /*  */
+    .idb-suggester-input-container {
+      padding-left: 30px;
+      width: calc(100% - 54px);
+      .idb-suggester-input {
+      }
+
+      .idb-suggester-input-layer {
+        width: calc(100% - 30px);
+      }
+    }
+  }
+}

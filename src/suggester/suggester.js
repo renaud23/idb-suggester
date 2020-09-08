@@ -5,7 +5,6 @@ import PropTypes from 'prop-types';
 import Input from './suggester-input';
 import Panel from './suggester-panel';
 import OptionDefault from './suggester-option-default';
-
 import {
   reducer,
   initialState,
@@ -13,7 +12,7 @@ import {
   onRefreshSuggestions,
   onBlurSuggester,
 } from './component-state';
-// import './themes/pinky-theme.scss';
+import SearchIcon from './search.icon';
 
 async function refreshSuggestion(prefix, searching, how) {
   if (prefix.trim().length) {
@@ -39,9 +38,9 @@ function Suggester({
   language,
   className,
   theme,
+  searchIcon,
 }) {
   const containerEl = useRef();
-
   const [state, dispatch] = useReducer(reducer, {
     ...initialState,
     onSelect,
@@ -112,6 +111,9 @@ function Suggester({
   return (
     <SuggesterStateContext.Provider value={context}>
       <SuggesterContainer ref={containerEl} className={className}>
+        <div className="search-icon">
+          <SearchIcon component={searchIcon} />
+        </div>
         <Input />
         <Panel optionComponent={optionComponent} />
       </SuggesterContainer>
