@@ -6,7 +6,7 @@ import { createStore, SEARCH_TYPES } from '../store-index';
 import classnames from 'classnames';
 import { SearchIconDefault } from '../suggester';
 import '../custom-option.scss';
-import '../suggester/themes/default-theme.scss';
+import '../suggester/themes/pinky-theme.scss';
 import './search-icon.scss';
 
 async function fetchCommunes() {
