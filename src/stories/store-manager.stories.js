@@ -1,8 +1,8 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import stopWords from '../stop-words';
 import { Suggester } from '../suggester';
 import { StoreManager } from '../store-manager';
-import { createStore, SEARCH_TYPES } from '../store-index';
+import { SEARCH_TYPES, useStoreIndex } from '../store-index';
 import classnames from 'classnames';
 import { SearchIconDefault } from '../suggester';
 import './custom-option.scss';
@@ -58,15 +58,9 @@ function CustomNafOption({ suggestion }) {
 }
 
 const TemplateCOG = () => {
-  const [store, setStore] = useState(undefined);
   const [echoes, setEchoes] = useState([]);
-  useEffect(function () {
-    async function init() {
-      setStore(await createStore(COG_IDB_NAME, 1, COG_FIELDS));
-    }
+  const store = useStoreIndex(COG_IDB_NAME, 1, COG_FIELDS);
 
-    init();
-  }, []);
   if (!store) {
     return <div>waiting...</div>;
   }
@@ -106,16 +100,9 @@ COG.args = {
 };
 
 export function NAF() {
-  const [store, setStore] = useState(undefined);
-  useEffect(function () {
-    async function init() {
-      setStore(await createStore(NAF_IDB_NAME, 1, NAF_FIELDS));
-    }
-
-    init();
-  }, []);
+  const store = useStoreIndex(NAF_IDB_NAME, 1, NAF_FIELDS);
   if (!store) {
-    return null;
+    return <div>Loading...</div>;
   }
   return (
     <>
