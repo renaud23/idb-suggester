@@ -39,11 +39,13 @@ function Suggester({
   className,
   theme,
   searchIcon,
+  onChange,
 }) {
   const containerEl = useRef();
   const [state, dispatch] = useReducer(reducer, {
     ...initialState,
     onSelect,
+    onChange,
     displayPath,
     placeHolder,
   });
@@ -111,9 +113,7 @@ function Suggester({
   return (
     <SuggesterStateContext.Provider value={context}>
       <SuggesterContainer ref={containerEl} className={className}>
-        <div className="search-icon">
-          <SearchIcon component={searchIcon} />
-        </div>
+        <SearchIcon component={searchIcon} />
         <Input />
         <Panel optionComponent={optionComponent} />
       </SuggesterContainer>
@@ -122,6 +122,7 @@ function Suggester({
 }
 
 Suggester.defaultProps = {
+  theme: undefined,
   optionComponent: OptionDefault,
   displayPath: 'id',
   how: 15,
@@ -129,6 +130,7 @@ Suggester.defaultProps = {
   placeHolder: 'Search...',
   language: 'French',
   searchIcon: undefined,
+  onChange: () => null,
 };
 
 Suggester.propTypes = {
@@ -149,6 +151,8 @@ Suggester.propTypes = {
   placeHolder: PropTypes.string,
   language: PropTypes.string,
   className: PropTypes.string,
+  onChange: PropTypes.func,
+  theme: PropTypes.string,
 };
 
 export default Suggester;

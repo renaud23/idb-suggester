@@ -10,7 +10,8 @@
   },
   "main": "./release/index.js",
   "files": [
-    "release", "themes"
+    "release",
+    "themes"
   ],
   "description": "a simple suggester, using indexedDB.",
   "scripts": {

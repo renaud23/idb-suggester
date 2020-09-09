@@ -5,7 +5,7 @@ import { StoreManager } from '../store-manager';
 import { createStore, SEARCH_TYPES } from '../store-index';
 import classnames from 'classnames';
 import { SearchIconDefault } from '../suggester';
-import '../custom-option.scss';
+import './custom-option.scss';
 import '../suggester/themes/default-theme.scss';
 import './search-icon.scss';
 
@@ -59,6 +59,7 @@ function CustomNafOption({ suggestion }) {
 
 const TemplateCOG = () => {
   const [store, setStore] = useState(undefined);
+  const [echoes, setEchoes] = useState([]);
   useEffect(function () {
     async function init() {
       setStore(await createStore(COG_IDB_NAME, 1, COG_FIELDS));
@@ -80,9 +81,20 @@ const TemplateCOG = () => {
           onSelect={function (item, all, query) {
             console.log('onSelect', item, all, query);
           }}
+          onChange={function (prefix, suggestions) {
+            setEchoes(suggestions);
+          }}
         />
       </div>
       <StoreManager name={COG_IDB_NAME} version={1} fields={COG_FIELDS} fetch={fetchCommunes} />
+      {echoes.map(function (echo, i) {
+        const { com } = echo;
+        return (
+          <div className="echo" key={i}>
+            {com}
+          </div>
+        );
+      })}
     </>
   );
 };

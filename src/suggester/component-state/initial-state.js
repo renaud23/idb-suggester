@@ -1,7 +1,7 @@
 const INITIAL_STATE = {
-  placeHolder: "Search...",
+  placeHolder: 'Search...',
   suggesterFocused: false,
-  inputValue: "",
+  inputValue: '',
   suggestions: [],
   displayPanel: false,
   focused: false,
@@ -9,6 +9,7 @@ const INITIAL_STATE = {
   selectedItem: undefined,
   displayActiveIndex: false,
   onSelect: () => null,
+  onChange: undefined,
   displayOnRefresh: true,
   cursorPos: 0,
 };
