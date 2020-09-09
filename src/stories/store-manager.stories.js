@@ -1,12 +1,12 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import stopWords from '../stop-words';
 import { Suggester } from '../suggester';
 import { StoreManager } from '../store-manager';
-import { createStore, SEARCH_TYPES } from '../store-index';
+import { SEARCH_TYPES, useStoreIndex } from '../store-index';
 import classnames from 'classnames';
 import { SearchIconDefault } from '../suggester';
-import '../custom-option.scss';
-import '../suggester/themes/pinky-theme.scss';
+import './custom-option.scss';
+import '../suggester/themes/default-theme.scss';
 import './search-icon.scss';
 
 async function fetchCommunes() {
@@ -58,14 +58,9 @@ function CustomNafOption({ suggestion }) {
 }
 
 const TemplateCOG = () => {
-  const [store, setStore] = useState(undefined);
-  useEffect(function () {
-    async function init() {
-      setStore(await createStore(COG_IDB_NAME, 1, COG_FIELDS));
-    }
+  const [echoes, setEchoes] = useState([]);
+  const store = useStoreIndex(COG_IDB_NAME, 1, COG_FIELDS);
 
-    init();
-  }, []);
   if (!store) {
     return <div>waiting...</div>;
   }
@@ -80,9 +75,20 @@ const TemplateCOG = () => {
           onSelect={function (item, all, query) {
             console.log('onSelect', item, all, query);
           }}
+          onChange={function (prefix, suggestions) {
+            setEchoes(suggestions);
+          }}
         />
       </div>
       <StoreManager name={COG_IDB_NAME} version={1} fields={COG_FIELDS} fetch={fetchCommunes} />
+      {echoes.map(function (echo, i) {
+        const { com } = echo;
+        return (
+          <div className="echo" key={i}>
+            {com}
+          </div>
+        );
+      })}
     </>
   );
 };
@@ -94,16 +100,9 @@ COG.args = {
 };
 
 export function NAF() {
-  const [store, setStore] = useState(undefined);
-  useEffect(function () {
-    async function init() {
-      setStore(await createStore(NAF_IDB_NAME, 1, NAF_FIELDS));
-    }
-
-    init();
-  }, []);
+  const store = useStoreIndex(NAF_IDB_NAME, 1, NAF_FIELDS);
   if (!store) {
-    return null;
+    return <div>Loading...</div>;
   }
   return (
     <>

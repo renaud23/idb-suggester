@@ -27,7 +27,15 @@ const KEY_BIND = {
 
 function Input() {
   const [state, dispatch] = useSuggesterState();
-  const { focused, inputValue, placeHolder, cursorPos, displayActiveIndex } = state;
+  const {
+    focused,
+    inputValue,
+    placeHolder,
+    cursorPos,
+    displayActiveIndex,
+    onChange,
+    suggestions,
+  } = state;
   const inputEl = useRef();
   function handleKeyPressed(e) {
     e.stopPropagation();
@@ -71,6 +79,13 @@ function Input() {
       }
     },
     [inputEl, cursorPos]
+  );
+
+  useEffect(
+    function () {
+      onChange(inputValue, suggestions);
+    },
+    [inputValue, suggestions, onChange]
   );
 
   return (

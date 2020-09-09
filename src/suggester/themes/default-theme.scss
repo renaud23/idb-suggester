@@ -9,8 +9,7 @@ $inputHeight: 32px;
 
 .idb-suggester-container {
   position: relative;
-  text-align: left;
-  font-size: 14px;
+  text-align: left; 
 
   &.focused {
   }
@@ -18,7 +17,7 @@ $inputHeight: 32px;
   }
 
   .idb-suggester {
-    border-radius: 15px;
+    border-radius: 18px;
     border: solid lightblue 2px;
     background-color: $searchBarBackgroundColor;
     height: $inputHeight;
